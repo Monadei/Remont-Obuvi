@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a1917">
+<meta name="description" content="Ремонт и реставрация обуви в Пензе. Более 20 лет опыта.">
+<meta name="keywords" content="ремонт обуви Пенза, реставрация обуви, замена подошвы, ремонт каблуков">
+
+<meta property="og:title" content="Мастерская обуви — Ремонт и реставрация в Пензе">
+<meta property="og:description" content="Более 20 лет опыта. Качественный ремонт обуви любой сложности.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vash-site.github.io">
+<meta property="og:image" content="https://vash-site.github.io/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e8b931'/%3E%3Cpath d='M20 75h60M25 75v-25a15 15 0 0 1 15-15h0a15 15 0 0 1 15 15v25M55 60v15M70 75v-15a8 8 0 0 1 16 0v15' stroke='%230a0a0a' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23e8b931'/%3E%3Cpath d='M36 135h108M45 135v-45a27 27 0 0 1 27-27h0a27 27 0 0 1 27 27v45M99 108v27M126 135v-27a14 14 0 0 1 28 0v27' stroke='%230a0a0a' stroke-width='10' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<title>Мастерская обуви — Ремонт и реставрация в Пензе</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Мастерская по ремонту обуви",
+  "description": "Ремонт и реставрация обуви в Пензе. Более 20 лет опыта. Замена подошвы, каблуков, покраска, ремонт молний.",
+  "url": "https://vash-site.github.io",
+  "telephone": "+7 (953) 023 86 88",
+  "email": "artemsafronov972@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Тамбовская 9",
+    "addressLocality": "Пенза",
+    "addressRegion": "Пензенская область",
+    "postalCode": "440000",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "53.1959",
+    "longitude": "45.0183"
+  },
+  "openingHours": ["Mo-Fr 09:00-18:00", "Sa 10:00-15:00"],
+  "priceRange": "$$",
+  "image": "https://vash-site.github.io/og-image.jpg"
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #1a1917;
+  --bg-secondary: #242320;
+  --bg-tertiary: #2d2b26;
+  --text: #e8e4de;
+  --text-secondary: #9a958d;
+  --text-muted: #6b665e;
+  --accent: #b87333;
+  --accent-dim: #8b5a2b;
+  --border: #4a4540;
+  --border-light: #5a554e;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --transition: all 0.2s ease;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background-color: var(--bg);
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #1a1917 0%, #1e1d1a 50%, #1a1917 100%);
+  background-size: 256px 256px, 100% 100%;
+  color: var(--text); line-height: 1.6;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 0; }
+
+.glass {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.glass::before, .glass::after {
+  content: ''; position: absolute; width: 10px; height: 10px;
+  border-color: var(--accent); border-style: solid;
+  transition: var(--transition);
+}
+.glass::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.glass::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+.glass-hover:hover {
+  border-color: var(--accent);
+  background: var(--bg-tertiary);
+}
+.glass-hover:hover::before, .glass-hover:hover::after {
+  width: 14px; height: 14px;
+}
+
+.stamp {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transform: rotate(-10deg);
+  opacity: 0.75;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(184,115,51,0.05);
+}
+.stamp-red {
+  border-color: #8b3a3a;
+  color: #8b3a3a;
+  background: rgba(139,58,58,0.05);
+}
+.stamp-green {
+  border-color: #4a7c59;
+  color: #4a7c59;
+  background: rgba(74,124,89,0.05);
+}
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(26,25,23,0.95);
+  border-bottom: 2px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between; height: 56px;
+}
+.nav-logo {
+  font-size: 15px; font-weight: 700; letter-spacing: 1px;
+  display: flex; align-items: center; gap: 8px; color: var(--text);
+  text-decoration: none; text-transform: uppercase;
+}
+.nav-logo svg { width: 20px; height: 20px; color: var(--accent); }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary); text-decoration: none; font-size: 12px; font-weight: 600;
+  transition: var(--transition); text-transform: uppercase; letter-spacing: 1px;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: #000; padding: 8px 16px;
+  font-size: 12px; font-weight: 700; text-decoration: none; transition: var(--transition);
+  border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+}
+.nav-cta:hover { background: #c9844a; }
+.nav-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; font-size: 11px; font-weight: 700;
+  transition: var(--transition); white-space: nowrap; text-transform: uppercase; letter-spacing: 1px;
+  border: 1px solid;
+}
+.nav-status.open {
+  background: rgba(74,124,89,0.1); color: #4a7c59; border-color: rgba(74,124,89,0.3);
+}
+.nav-status.closed {
+  background: rgba(139,58,58,0.1); color: #8b3a3a; border-color: rgba(139,58,58,0.3);
+}
+.nav-status-dot {
+  width: 6px; height: 6px; border-radius: 0;
+  animation: pulse 2s infinite;
+}
+.nav-status.open .nav-status-dot { background: #4a7c59; }
+.nav-status.closed .nav-status-dot { background: #8b3a3a; }
+.nav-toggle {
+  display: none; background: none; border: none; color: var(--text);
+  cursor: pointer; width: 40px; height: 40px; align-items: center; justify-content: center;
+}
+.nav-toggle span {
+  display: block; width: 20px; height: 2px; background: var(--text);
+  position: relative;
+}
+.nav-toggle span::before, .nav-toggle span::after {
+  content: ''; position: absolute; width: 20px; height: 2px; background: var(--text);
+  left: 0;
+}
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+.nav-toggle.active span { background: transparent; }
+.nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
+.nav-toggle.active span::after { top: 0; transform: rotate(-45deg); }
+.nav.scrolled { background: rgba(26,25,23,0.98); }
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(26,25,23,0.97);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.mobile-nav.active { opacity: 1; pointer-events: all; }
+.mobile-nav a {
+  color: var(--text); text-decoration: none; font-size: 18px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.mobile-nav a:hover { color: var(--accent); }
+.mobile-nav .nav-cta { font-size: 14px; padding: 12px 28px; margin-top: 8px; }
+
+.hero {
+  min-height: 80vh; display: flex; align-items: center; justify-content: center;
+  padding: 100px 20px 40px; text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 3px; background: var(--accent); opacity: 0.5;
+}
+.hero-content { max-width: 700px; position: relative; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border: 1px dashed var(--border-light);
+  font-size: 11px; color: var(--accent); font-weight: 600;
+  margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+}
+.hero-badge svg { width: 14px; height: 14px; }
+.hero h1 {
+  font-size: clamp(26px, 5vw, 48px); font-weight: 700; line-height: 1.15;
+  letter-spacing: 2px; margin-bottom: 16px; text-transform: uppercase;
+}
+.hero h1 span { color: var(--accent); }
+.hero-desc {
+  font-size: 14px; color: var(--text-secondary); max-width: 480px;
+  margin: 0 auto 28px; line-height: 1.7;
+}
+.hero-btns {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 12px 24px; font-size: 12px;
+  font-weight: 700; cursor: pointer; transition: var(--transition); border: none;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+}
+.btn-primary { background: var(--accent); color: #000; }
+.btn-primary:hover { background: #c9844a; }
+.btn-outline {
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--accent); background: rgba(184,115,51,0.05); }
+.btn svg { width: 16px; height: 16px; }
+
+.section { padding: 64px 20px; max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-tag {
+  display: inline-block; padding: 6px 14px;
+  border: 1px dashed var(--border-light); font-size: 10px;
+  color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+}
+.section h2 { font-size: clamp(20px, 3.5vw, 28px); font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+.section p.sub { color: var(--text-secondary); font-size: 13px; max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; }
+.why-card {
+  border: 1px solid var(--border);
+  padding: 24px 16px; text-align: center;
+  transition: var(--transition); position: relative;
+}
+.why-card::before, .why-card::after {
+  content: ''; position: absolute; width: 8px; height: 8px;
+  border-color: var(--border); border-style: solid;
+}
+.why-card::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.why-card::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+.why-card:hover { border-color: var(--accent); }
+.why-card:hover::before, .why-card:hover::after { border-color: var(--accent); }
+.why-card svg { width: 28px; height: 28px; color: var(--accent); margin-bottom: 10px; }
+.why-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.why-card p { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; }
+.about-img {
+  border: 1px solid var(--border); overflow: hidden;
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center; color: var(--text-muted);
+  position: relative;
+}
+.about-img::before, .about-img::after {
+  content: ''; position: absolute; width: 20px; height: 20px;
+  border-color: var(--accent); border-style: solid;
+}
+.about-img::before { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+.about-img::after { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+.about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-img-inner { text-align: center; padding: 20px; }
+.about-img-inner svg { width: 48px; height: 48px; margin-bottom: 10px; opacity: 0.4; }
+.about-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.about-text p { color: var(--text-secondary); margin-bottom: 12px; font-size: 13px; line-height: 1.7; }
+.about-stats { display: flex; gap: 28px; margin-top: 24px; flex-wrap: wrap; }
+.about-stat { text-align: left; }
+.about-stat h4 { font-size: 26px; font-weight: 700; color: var(--accent); letter-spacing: -1px; }
+.about-stat p { font-size: 11px; color: var(--text-muted); margin: 4px 0 0; text-transform: uppercase; letter-spacing: 1px; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.service-card {
+  border: 1px solid var(--border);
+  padding: 28px;
+  transition: var(--transition); position: relative;
+}
+.service-card::before, .service-card::after {
+  content: ''; position: absolute; width: 8px; height: 8px;
+  border-color: transparent; border-style: solid; transition: var(--transition);
+}
+.service-card::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.service-card::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+.service-card:hover { border-color: var(--accent); background: var(--bg-tertiary); }
+.service-card:hover::before, .service-card:hover::after { border-color: var(--accent); }
+.service-icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  border: 1px solid var(--border); color: var(--accent);
+  background: rgba(184,115,51,0.06);
+}
+.service-icon svg { width: 18px; height: 18px; }
+.service-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.service-card p { color: var(--text-secondary); font-size: 12px; line-height: 1.7; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px; }
+.price-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 14px 18px; border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.price-row:hover { border-color: var(--accent); background: var(--bg-tertiary); }
+.price-name { font-size: 13px; font-weight: 600; }
+.price-value { font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.price-note { text-align: center; margin-top: 16px; color: var(--text-muted); font-size: 11px; }
+
+.process-section { border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.process-step { text-align: center; position: relative; }
+.process-step .num {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
+  font-size: 16px; font-weight: 700; color: var(--accent);
+  background: rgba(184,115,51,0.08);
+  border: 1px solid var(--accent);
+}
+.process-step h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.process-step p { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 18px 0; cursor: pointer; font-size: 14px; font-weight: 600;
+  transition: var(--transition); user-select: none; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.faq-question:hover { color: var(--accent); }
+.faq-question svg { width: 18px; height: 18px; color: var(--text-muted); flex-shrink: 0; transition: transform 0.2s ease; }
+.faq-item.active .faq-question svg { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+  color: var(--text-secondary); font-size: 12px; line-height: 1.7;
+}
+.faq-item.active .faq-answer { max-height: 200px; padding-bottom: 18px; }
+
+.contacts-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: 10px; }
+.contact-row {
+  display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px;
+  border: 1px solid var(--border); position: relative;
+}
+.contact-row::before, .contact-row::after {
+  content: ''; position: absolute; width: 8px; height: 8px;
+  border-color: var(--border); border-style: solid;
+}
+.contact-row::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.contact-row::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+.contact-row:hover::before, .contact-row:hover::after { border-color: var(--accent); }
+.contact-row svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.contact-row strong { display: block; font-size: 12px; font-weight: 700; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; }
+.contact-row span { font-size: 12px; color: var(--text-secondary); }
+.status-indicator {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; font-size: 11px; font-weight: 700;
+  margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;
+}
+.status-open { background: rgba(74,124,89,0.1); color: #4a7c59; border: 1px solid rgba(74,124,89,0.3); }
+.status-closed { background: rgba(139,58,58,0.1); color: #8b3a3a; border: 1px solid rgba(139,58,58,0.3); }
+.status-dot { width: 6px; height: 6px; border-radius: 0; }
+.status-open .status-dot { background: #4a7c59; }
+.status-closed .status-dot { background: #8b3a3a; }
+.copy-btn, .route-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px; font-size: 10px; font-weight: 600;
+  background: transparent; color: var(--text-muted);
+  border: 1px solid var(--border); cursor: pointer; text-decoration: none;
+  transition: var(--transition); margin-top: 6px; text-transform: uppercase; letter-spacing: 1px;
+}
+.copy-btn:hover, .route-btn:hover { color: var(--accent); border-color: var(--accent); background: rgba(184,115,51,0.05); }
+.copy-btn svg, .route-btn svg { width: 12px; height: 12px; }
+
+.form-section { border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); }
+.form-wrap { max-width: 520px; margin: 0 auto; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 10px; font-weight: 700; color: var(--text-secondary); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1.5px; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 12px 14px; background: var(--bg);
+  border: 1px solid var(--border); 
+  color: var(--text); font-size: 14px; font-family: inherit;
+  transition: var(--transition); -webkit-appearance: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+.form-group textarea { min-height: 90px; resize: vertical; }
+.form-group select { cursor: pointer; }
+.form-group select option { background: var(--bg); color: var(--text); }
+
+.map-wrap { border: 2px solid var(--border); overflow: hidden; height: 320px; position: relative; }
+.map-wrap::before, .map-wrap::after {
+  content: ''; position: absolute; width: 16px; height: 16px;
+  border-color: var(--accent); border-style: solid; z-index: 2;
+}
+.map-wrap::before { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+.map-wrap::after { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+.map-wrap iframe { width: 100%; height: 100%; border: none; filter: grayscale(0.8) sepia(0.3) contrast(1.1); }
+
+.footer {
+  border-top: 2px solid var(--border);
+  padding: 32px 20px; text-align: center;
+}
+.footer p { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.site-stats {
+  display: flex; gap: 16px; justify-content: center; margin-top: 12px; flex-wrap: wrap;
+}
+.site-stats span { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.site-stats strong { color: var(--text); font-weight: 700; }
+.site-stats .dot {
+  display: inline-block; width: 6px; height: 6px; background: #4a7c59; border-radius: 0; margin-right: 4px; animation: pulse 2s infinite;
+}
+.footer-links { display: flex; gap: 16px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+.footer-links a, .footer-links button { color: var(--text-secondary); text-decoration: none; font-size: 11px; transition: var(--transition); cursor: pointer; background: none; border: none; text-transform: uppercase; letter-spacing: 1px; font-family: inherit; }
+.footer-links a:hover, .footer-links button:hover { color: var(--accent); }
+
+.float-btns {
+  position: fixed; bottom: 20px; right: 20px; z-index: 998;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.float-btn {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--border); cursor: pointer; text-decoration: none;
+  transition: var(--transition); background: var(--bg-secondary);
+}
+.float-btn:hover { border-color: var(--accent); background: var(--bg-tertiary); transform: scale(1.05); }
+.float-btn svg { width: 22px; height: 22px; }
+.float-tg { color: #07f; }
+.float-call { color: var(--accent); }
+
+.toast {
+  position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  color: var(--text); padding: 12px 24px;
+  font-size: 12px; font-weight: 600; opacity: 0; transition: all 0.4s ease;
+  z-index: 2000; pointer-events: none; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  max-width: 90vw; text-align: center; text-transform: uppercase; letter-spacing: 1px;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1001;
+  background: rgba(26,25,23,0.92);
+  display: none; align-items: center; justify-content: center; padding: 16px;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--bg); border: 2px solid var(--border);
+  width: 100%; max-width: 640px; max-height: 85vh; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modal-header {
+  padding: 18px 24px; border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.modal-header h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+.modal-close {
+  background: none; border: none; color: var(--text-secondary); cursor: pointer;
+  font-size: 24px; line-height: 1; width: 36px; height: 36px; display: flex;
+  align-items: center; justify-content: center; transition: var(--transition);
+}
+.modal-close:hover { color: var(--accent); }
+.modal-body {
+  padding: 20px 24px; overflow-y: auto; flex: 1;
+  font-size: 12px; line-height: 1.8; color: var(--text-secondary);
+}
+.modal-body h4 { color: var(--text); font-size: 12px; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 1px; }
+.modal-body h4:first-child { margin-top: 0; }
+
+.tape {
+  position: relative;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--bg-secondary),
+    var(--bg-secondary) 10px,
+    var(--border) 10px,
+    var(--border) 11px
+  );
+  height: 4px;
+  margin: 8px 0;
+  opacity: 0.5;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 16px; height: 52px; }
+  .nav-logo { font-size: 14px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero { min-height: auto; padding: 80px 16px 32px; }
+  .hero h1 { font-size: 22px; letter-spacing: 1px; }
+  .hero-desc { font-size: 13px; margin-bottom: 20px; }
+  .hero-btns { flex-direction: column; gap: 8px; }
+  .hero-btns .btn { width: 100%; }
+  .section { padding: 48px 16px; }
+  .section-header { margin-bottom: 28px; }
+  .section h2 { font-size: 20px; }
+  .section p.sub { font-size: 13px; }
+  .why-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .why-card { padding: 18px 10px; }
+  .about-grid { grid-template-columns: 1fr; gap: 20px; }
+  .about-img { aspect-ratio: 16/9; }
+  .about-text h3 { font-size: 16px; }
+  .about-stats { gap: 16px; }
+  .about-stat h4 { font-size: 22px; }
+  .services-grid { grid-template-columns: 1fr; gap: 10px; }
+  .service-card { padding: 22px; }
+  .pricing-grid { grid-template-columns: 1fr; gap: 6px; }
+  .price-row { padding: 12px 14px; }
+  .process-grid { grid-template-columns: 1fr; gap: 20px; }
+  .process-step { display: flex; align-items: center; gap: 14px; text-align: left; }
+  .process-step .num { width: 40px; height: 40px; font-size: 14px; margin: 0; flex-shrink: 0; }
+  .process-step h4 { font-size: 13px; margin-bottom: 2px; }
+  .process-step p { font-size: 11px; }
+  .faq-question { font-size: 13px; padding: 16px 0; }
+  .faq-answer { font-size: 11px; }
+  .contacts-grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-row { padding: 12px 14px; }
+  .map-wrap { height: 240px; }
+  .float-btns { bottom: 16px; right: 16px; }
+  .float-btn { width: 48px; height: 48px; }
+  .float-btn svg { width: 20px; height: 20px; }
+  .modal-box { max-height: 90vh; }
+  .modal-body { padding: 16px 18px; font-size: 11px; }
+  .footer { padding: 28px 16px; }
+}
+@media (max-width: 380px) {
+  .hero h1 { font-size: 20px; }
+  .why-grid { grid-template-columns: 1fr; }
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">О мастере</a>
+  <a href="#services" onclick="closeMobileNav()">Услуги</a>
+  <a href="#pricing" onclick="closeMobileNav()">Цены</a>
+  <a href="#faq" onclick="closeMobileNav()">Вопросы</a>
+  <a href="#contacts" onclick="closeMobileNav()">Контакты</a>
+  <a href="https://vk.ru/artem_hf" target="_blank" class="nav-cta" onclick="closeMobileNav()">VK</a>
+  </div>
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 18v-6a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v6M13 14v4M17 18v-4a2 2 0 0 1 4 0v4"/></svg>
+      МАСТЕРСКАЯ
+    </a>
+    <div class="nav-links">
+      <a href="#about">О мастере</a>
+      <a href="#services">Услуги</a>
+      <a href="#pricing">Цены</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+      <span class="nav-status" id="navStatus"><span class="nav-status-dot"></span>—</span>
+      </div>
+    <button class="nav-toggle" id="navToggle" onclick="toggleMobileNav()" aria-label="Меню">
+      <span></span>
+    </button>
+  </div>
+</nav>
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge glass">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Более 20 лет опыта в Пензе
+    </div>
+    <h1>Ремонт обуви <span>любой сложности</span></h1>
+    <p class="hero-desc">Вернем вашей обуви вторую жизнь. Качественные материалы, гарантия на работу, индивидуальный подход к каждому заказу.</p>
+    <div class="hero-btns">
+      <a href="tel:89530238688" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Позвонить
+      </a>
+      <a href="#pricing" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Смотреть цены
+      </a>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top: 24px;">
+  <div class="why-grid">
+    <div class="why-card glass">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <h4>20+ лет опыта</h4>
+      <p>Работаем с 2005 года</p>
+    </div>
+    <div class="why-card glass">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h4>Гарантия 30 дней</h4>
+      <p>Исправим бесплатно</p>
+    </div>
+    <div class="why-card glass">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <h4>Качественные материалы</h4>
+      <p>Кожа, ТЭП</p>
+    </div>
+    <div class="why-card glass">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <h4>Срочный ремонт</h4>
+      <p>В день обращения</p>
+    </div>
+  </div>
+</section>
+<section class="section" id="about">
+  <div class="section-header">
+    <span class="section-tag">О нас</span>
+    <h2>Мастер с большой буквы</h2>
+    <p class="sub">Каждая пара обуви — это не просто вещь, а часть вашего образа и комфорта</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-img glass" style="padding:0;overflow:hidden;">
+      <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/474b4df5-b2ce-4e40-b7e5-9a61e83fab3c/1920x"
+           alt="Мастер по ремонту обуви"
+           style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="about-text">
+      <h3>Работаю с обувью более 20 лет</h3>
+      <p>Знаю, как вернуть ей былой вид, даже если кажется, что спасти уже ничего нельзя. Использую только качественные материалы от проверенных поставщиков: натуральную кожу, прочные подошвы, надежные клеи и фурнитуру.</p>
+      <p>Каждый заказ выполняю вручную, с вниманием к деталям. Гарантия на все виды работ — если что-то не устроит, переделаю бесплатно.</p>
+      <div class="about-stats">
+        <div class="about-stat"><h4>20+</h4><p>лет опыта</p></div>
+        <div class="about-stat"><h4>5000+</h4><p>пар обуви</p></div>
+        <div class="about-stat"><h4>100%</h4><p>качество</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="services">
+  <div class="section-header">
+    <span class="section-tag">Услуги</span>
+    <h2>Весь спектр работ</h2>
+    <p class="sub">От простой профилактики до сложной реставрации</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card glass glass-hover">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 18v-6a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v6M13 14v4M17 18v-4a2 2 0 0 1 4 0v4"/></svg></div>
+      <h3>Замена подошвы</h3>
+      <p>Микропора, ТЭП, резина, кожа. Подбор подходящего материала под вашу модель обуви.</p>
+    </div>
+    <div class="service-card glass glass-hover">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 8h12M6 16h12"/></svg></div>
+      <h3>Замена каблуков</h3>
+      <p>Любая высота и форма. Набойки, полиуретан, резина, металлические штыри.</p>
+    </div>
+    <div class="service-card glass glass-hover">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6 6 4-4 8 8M3 7V3h4"/></svg></div>
+      <h3>Ремонт молний</h3>
+      <p>Замена бегунков, вставка новой молнии в сапоги, ботинки, сумки.</p>
+    </div>
+    <div class="service-card glass glass-hover">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></div>
+      <h3>Покраска и реставрация</h3>
+      <p>Восстановление цвета кожи, замена подкладки, полировка, уход.</p>
+    </div>
+    <div class="service-card glass glass-hover">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></div>
+      <h3>Растяжка обуви</h3>
+      <p>Увеличение размера, размягчение жестких участков, подгонка по ноге.</p>
+    </div>
+    <div class="service-card glass glass-hover">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+      <h3>Ремонт сумок</h3>
+      <p>Замена ручек, фурнитуры, подкладки, реставрация кожгалантереи.</p>
+    </div>
+  </div>
+</section>
+<section class="section" id="pricing">
+  <div class="section-header">
+    <span class="section-tag">Прайс</span>
+    <h2>Цены и услуги</h2>
+    <p class="sub">Честные цены без скрытых платежей</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-row glass"><span class="price-name">Замена набойки</span><span class="price-value">от 500 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Замена каблука</span><span class="price-value">от 1500 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Замена подошвы</span><span class="price-value">от 2100 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Профилактика</span><span class="price-value">от 700-1300 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Ремонт молнии</span><span class="price-value">от 450 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Покраска обуви</span><span class="price-value">от 600 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Растяжка обуви</span><span class="price-value">от 800 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Ремонт задника</span><span class="price-value">от 900 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Прошивка</span><span class="price-value">от 600 ₽</span></div>
+    <div class="price-row glass"><span class="price-name">Срочный ремонт</span><span class="price-value">+50%</span></div>
+  </div>
+  <p class="price-note">Точная стоимость зависит от сложности и материалов — уточняйте по телефону или при личной встрече.</p>
+</section>
+<section class="section process-section" id="process">
+  <div class="section-header">
+    <span class="section-tag">Как мы работаем</span>
+    <h2>Простой процесс</h2>
+    <p class="sub">От заявки до готовой обуви — всего 4 шага</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="num">1</div>
+      <div>
+        <h4>Заявка</h4>
+        <p>Позвоните или напишите в VK. Опишите проблему.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="num">2</div>
+      <div>
+        <h4>Диагностика</h4>
+        <p>Привезите обувь. Мастер оценит работу и назовет цену.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="num">3</div>
+      <div>
+        <h4>Ремонт</h4>
+        <p>Выполняем работу качественно, в срок. Фотоотчет по запросу.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="num">4</div>
+      <div>
+        <h4>Готово</h4>
+        <p>Забираете обувь. Оплата после проверки результата.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="faq">
+  <div class="section-header">
+    <span class="section-tag">Вопросы</span>
+    <h2>Часто спрашивают</h2>
+    <p class="sub">Ответы на популярные вопросы</p>
+  </div>
+  <div class="glass" style="max-width: 680px; margin: 0 auto; border-radius: var(--radius); padding: 8px 24px;">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>Сколько времени занимает ремонт?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-answer">Стандартный ремонт занимает 1–3 дня. Срочный ремонт выполняется в день обращения за доплату 50%. Сложная реставрация может занять до 5 дней.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>Даете ли вы гарантию на работу?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-answer">Да, гарантия на все виды работ — 30 дней. Если в течение этого срока что-то пойдет не так, исправим бесплатно.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>Можно ли привезти обувь на выходных?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-answer">Да, Также можно договориться о встрече в удобное время.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>Какие материалы вы используете?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-answer">Только качественные: натуральная кожа, микропора, ТЭП, резина, полиуретан.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>Работаете ли вы с кожгалантереей?</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-answer">Да, ремонтируем сумки, портфели, ремни, кошельки. Замена ручек, фурнитуры, подкладки, реставрация кожи.</div>
+    </div>
+  </div>
+</section>
+<section class="section" id="contacts">
+  <div class="section-header">
+    <span class="section-tag">Контакты</span>
+    <h2>Где нас найти</h2>
+    <p class="sub">Приходите — будем рады видеть вас</p>
+  </div>
+  <div class="contacts-grid">
+    <div class="contact-info">
+      <div class="contact-row glass">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <strong>Адрес</strong>
+          <span id="addressText">г. Пенза, Тамбовская 9</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://yandex.ru/maps/?rtext=~53.1959,45.0183" target="_blank" class="route-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Построить маршрут
+            </a>
+            <button class="copy-btn" onclick="copyText('г. Пенза, Тамбовская 9', 'Адрес скопирован')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Копировать
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="contact-row glass">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <strong>Режим работы</strong>
+          <span>Пн–Вс: 9:00 – 18:00</span>
+          <div id="statusIndicator"></div>
+        </div>
+      </div>
+      <div class="contact-row glass">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <strong>Телефон</strong>
+          <span id="phoneText">+7 (953) 023 86 88</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="tel:89530238688" class="btn btn-primary" style="padding:6px 14px;font-size:12px;min-height:32px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Позвонить
+            </a>
+            <button class="copy-btn" onclick="copyText('+7 (953) 023-86-88', 'Телефон скопирован')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Копировать
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;">
+        <a href="https://vk.ru/artem_hf" target="_blank" class="btn btn-outline" style="flex:1;min-width:140px; border-color:var(--accent); color:var(--text);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#e8e4de"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.673 4 8.231c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+          VK
+        </a>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <iframe src="https://yandex.ru/map-widget/v1/?ll=45.001926%2C53.173230&z=17&pt=45.001926%2C53.173230%2Cpm2rdm" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<div class="tape"></div>
+<footer class="footer">
+  <p>© 2026 Мастерская по ремонту обуви · г. Пенза</p>
+    <div class="site-stats">
+    <span><span class="dot"></span>Сейчас онлайн: <strong id="footerOnline">—</strong></span>
+    <span>Всего посещений: <strong id="footerVisits">—</strong></span>
+  </div>
+  <div class="footer-links">
+    <a href="#about">О нас</a>
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цены</a>
+    <a href="#contacts">Контакты</a>
+    <button onclick="openPolicy()">Политика конфиденциальности</button>
+  </div>
+</footer>
+<div class="float-btns">
+  <a href="https://vk.ru/artem_hf" target="_blank" class="float-btn float-tg" title="Написать в VK" style="background:var(--accent); border-color:var(--accent);">
+    <svg viewBox="0 0 24 24" fill="#1a1917"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.673 4 8.231c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+  </a>
+  <a href="tel:89530238688" class="float-btn float-call" title="Позвонить">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+<div class="toast" id="toast"></div>
+<div class="modal-overlay" id="policyModal" onclick="closePolicy(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Политика конфиденциальности</h3>
+      <button class="modal-close" onclick="closePolicy()">×</button>
+    </div>
+    <div class="modal-body">
+      <h4>1. Общие положения</h4>
+      <p>Настоящая политика конфиденциальности описывает, как мы собираем, используем и защищаем персональные данные пользователей сайта.</p>
+      <h4>2. Какие данные собираются</h4>
+      <p>Мы можем собирать следующие данные: имя, номер телефона, описание проблемы с обувью. Эти данные необходимы для связи с вами и оказания услуг.</p>
+      <h4>3. Цели обработки</h4>
+      <p>Данные используются исключительно для: обратной связи по заявке, согласования стоимости и сроков ремонта, информирования о готовности заказа.</p>
+      <h4>4. Хранение данных</h4>
+      <p>Персональные данные хранятся на защищенных серверах и не передаются третьим лицам. Данные удаляются по запросу пользователя.</p>
+      <h4>5. Cookies</h4>
+      <p>Сайт может использовать cookies для улучшения работы. Вы можете отключить cookies в настройках браузера.</p>
+      <h4>6. Контакты</h4>
+      <p>По вопросам обработки персональных данных обращайтесь по телефону или в VK, указанным на сайте.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('navToggle');
+  nav.classList.toggle('active');
+  btn.classList.toggle('active');
+  document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('active');
+  document.getElementById('navToggle').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasActive = item.classList.contains('active');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+  if (!wasActive) item.classList.add('active');
+}
+const navEl = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) navEl.classList.add('scrolled');
+  else navEl.classList.remove('scrolled');
+}, { passive: true });
+function updateStatus() {
+  const now = new Date();
+  const day = now.getDay();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+
+  // Пн-Вс: 9:00 - 18:00
+  const isWorkDay = day >= 1 && day <= 6; // Пн-Сб
+  const isSunday = day === 0;
+  const isOpenNow = (hour >= 9 && hour < 18);
+
+  let isOpen = false;
+  let statusText = '';
+  let nextOpenText = '';
+
+  if (isOpenNow) {
+    isOpen = true;
+    statusText = 'Открыто сейчас';
+  } else if (hour < 9) {
+    statusText = 'Закрыто';
+    nextOpenText = 'Откроем в 9:00';
+  } else {
+    statusText = 'Закрыто';
+    nextOpenText = 'Откроем завтра в 9:00';
+  }
+
+  // Обновляем индикатор в контактах
+  const container = document.getElementById('statusIndicator');
+  if (container) {
+    const cls = isOpen ? 'status-open' : 'status-closed';
+    const nextText = nextOpenText ? ' — ' + nextOpenText : '';
+    container.innerHTML = '<div class="status-indicator ' + cls + '"><span class="status-dot"></span>' + statusText + nextText + '</div>';
+  }
+
+  // Обновляем индикатор в шапке
+  const navStatus = document.getElementById('navStatus');
+  if (navStatus) {
+    navStatus.className = isOpen ? 'nav-status open' : 'nav-status closed';
+    navStatus.innerHTML = '<span class="nav-status-dot"></span>' + (isOpen ? 'Открыто' : 'Закрыто');
+  }
+}
+updateStatus();
+
+// Supabase config
+const SUPABASE_URL = 'ВАШ_SUPABASE_URL';
+const SUPABASE_KEY = 'ВАШ_SUPABASE_ANON_KEY';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+// ====== TRACKING ======
+async function trackVisit() {
+  let sessionId = localStorage.getItem('site_session');
+  if (!sessionId) {
+    sessionId = crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('site_session', sessionId);
+  }
+  const { error } = await supabaseClient
+    .from('site_visits')
+    .upsert({
+      session_id: sessionId,
+      last_seen: new Date().toISOString(),
+      first_visit: new Date().toISOString()
+    }, { onConflict: 'session_id' });
+  if (error) console.error('Track error:', error);
+}
+
+async function loadSiteStats() {
+  try {
+    const fiveMinAgo = new Date(Date.now() - 5*60*1000).toISOString();
+    const { count: online, error: e1 } = await supabaseClient
+      .from('site_visits')
+      .select('*', { count: 'exact', head: true })
+      .gte('last_seen', fiveMinAgo);
+    const { count: total, error: e2 } = await supabaseClient
+      .from('site_visits')
+      .select('*', { count: 'exact', head: true });
+    const onlineEl = document.getElementById('footerOnline');
+    const visitsEl = document.getElementById('footerVisits');
+    if (onlineEl) onlineEl.textContent = (online || 0).toLocaleString('ru');
+    if (visitsEl) visitsEl.textContent = (total || 0).toLocaleString('ru');
+  } catch (e) { console.error('Stats error:', e); }
+}
+
+setInterval(() => { trackVisit(); loadSiteStats(); }, 30000);
+setInterval(updateStatus, 60000); // Обновляем статус каждую минуту
+trackVisit();
+loadSiteStats();
+// ======================
+
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Отправка...';
+  btn.disabled = true;
+
+  const { data, error } = await supabaseClient
+    .from('orders')
+    .insert([{
+      name: document.getElementById('formName').value.trim(),
+      phone: document.getElementById('formPhone').value.trim(),
+      service: document.getElementById('formService').value,
+      message: document.getElementById('formText').value.trim(),
+      status: 'новая'
+    }]);
+
+  btn.innerHTML = originalHTML;
+  btn.disabled = false;
+
+  if (error) {
+    showToast('Ошибка: ' + error.message);
+  } else {
+    showToast('Заявка отправлена! Мы свяжемся с вами.');
+    document.getElementById('contactForm').reset();
+  }
+}
+function copyText(text, msg) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast(msg));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast(msg);
+  }
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+function openPolicy() {
+  document.getElementById('policyModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closePolicy(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('policyModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>
